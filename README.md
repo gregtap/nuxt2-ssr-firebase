@@ -93,3 +93,12 @@ yarn serve
 * The root directory has a package.json file with several scripts that will be used to optimize and ease getting started and the workflow
 
 * ALL commands are ran from the root directory
+
+
+#   "dependencies": {
+    "@google-cloud/functions-emulator": "git://github.com/GoogleCloudPlatform/cloud-functions-emulator.git#098e253188d8caa706da08350483468d60f0c049"
+  }
+
+  # TODO try node 6
+
+  

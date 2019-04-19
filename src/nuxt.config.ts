@@ -1,8 +1,10 @@
-module.exports = {
+import NuxtConfiguration from "@nuxt/config";
+// const pkg = require("./package");
+
+const config: NuxtConfiguration = {
+  mode: "spa",
   debug: true,
-  /*
-   ** Headers of the page
-   */
+
   head: {
     title: "Nuxt.js 2 - SSR on Firebase Functions",
 
@@ -73,9 +75,9 @@ module.exports = {
     theme_color: "#3B8070"
   },
   /*
-  ** Modules
-  */
-  modules: ["@nuxtjs/pwa"],
+   ** Modules
+   */
+  modules: [],
 
   /*
    ** Global CSS
@@ -85,35 +87,31 @@ module.exports = {
   build: {
     publicPath: "/assets/",
     cache: true,
-    // babel: {
-    //   presets: [
-    //     [
-    //       'babel-preset-vue-app',
-    //       {
-    //         targets: process.server ?
-    //           {
-    //             node: '6.14.0'
-    //           } :
-    //           {
-    //             ie: 9,
-    //             uglify: true
-    //           }
-    //       }
-    //     ]
-    //   ]
-    // },
-    /*
-     ** Run ESLINT on save
-     */
+
+    postcss: {
+      preset: {
+        features: {
+          customProperties: false
+        }
+      }
+    },
+
     extend(config, ctx) {
-      if (process.browser) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        if (!config.module) return;
         config.module.rules.push({
           enforce: "pre",
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
+          options: {
+            configFile: '.eslintrc.js'
+          }
         });
       }
     }
   }
 };
+
+export default config;

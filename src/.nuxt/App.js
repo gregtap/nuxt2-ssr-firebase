@@ -55,24 +55,24 @@ export default {
     // Add $nuxt.error()
     this.error = this.nuxt.error
   },
-  
+
   mounted () {
     this.$loading = this.$refs.loading
   },
   watch: {
     'nuxt.err': 'errorChanged'
   },
-  
+
   methods: {
-    
+
     errorChanged () {
       if (this.nuxt.err && this.$loading) {
         if (this.$loading.fail) this.$loading.fail()
         if (this.$loading.finish) this.$loading.finish()
       }
     },
-    
-    
+
+
     setLayout(layout) {
       if (!layout || !layouts['_' + layout]) layout = 'default'
       this.layoutName = layout
@@ -83,7 +83,7 @@ export default {
       if (!layout || !layouts['_' + layout]) layout = 'default'
       return Promise.resolve(layouts['_' + layout])
     }
-    
+
   },
   components: {
     NuxtLoading

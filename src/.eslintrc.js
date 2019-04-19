@@ -1,15 +1,24 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   env: {
     browser: true,
     node: true
   },
-  // required to lint *.vue files
+  parserOptions: {
+    parser: '@typescript-eslint/parser'
+  },
+  extends: [
+    '@nuxtjs',
+    'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/vue'
+  ],
   plugins: [
-    'html'
+    '@typescript-eslint'
   ],
   // add your custom rules here
-  rules: {},
-  globals: {}
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'error'
+  }
 }

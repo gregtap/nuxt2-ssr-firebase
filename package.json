@@ -1,27 +1,33 @@
 {
-  "name": "Nuxt-SSR-Firebase",
+  "name": "foobar-project",
   "version": "0.2.0",
   "description": "Nuxt.js 2 app with SSR using Firebase Cloud Functions and Firebase Hosting.",
   "license": "MIT",
   "author": "David Royer",
   "repository": "https://github.com/davidroyer/nuxt-ssr-firebase",
   "scripts": {
-    "dev": "cd \"src\" && yarn dev",
+    "build:nuxt": "cd \"src\" && yarn build",
     "build": "yarn build:nuxt && yarn clean && yarn copyassets",
-    "serve": "NODE_ENV=development firebase serve",
-    "deploy": "firebase deploy",
-    "predeploy": "yarn build",
-    "setup": "yarn install && yarn setup:client && yarn setup:server",
-    "setup:client": "cd \"src\" && yarn install",
-    "setup:server": "cd \"prod/server\" && yarn install",
+    "clean": "rimraf prod/client/assets/* && rimraf prod/client/*.*",
     "copyassets": "yarn copydist && yarn copystatic",
     "copydist": "cp -R prod/server/nuxt/dist/ prod/client/assets",
     "copystatic": "cp -R src/static/ prod/client",
-    "clean": "rimraf prod/client/assets/* && rimraf prod/client/*.*",
-    "build:nuxt": "cd \"src\" && yarn build"
+    "deploy": "firebase deploy",
+    "dev": "cd \"src\" && yarn dev",
+    "lint-fix": "cd \"src\" && npx eslint --fix --ext .ts,.js,.vue --ignore-path ../.gitignore .",
+    "lint": "cd \"src\" && npx eslint --ext .ts,.js,.vue --ignore-path ../.gitignore .",
+    "predeploy": "yarn build",
+    "prettier": "d \"src\" && npx prettier --write src/components/*.vue",
+    "serve": "sudo NODE_ENV=development firebase serve --only functions,hosting -p 3000",
+    "setup:client": "cd \"src\" && yarn install",
+    "setup:server": "cd \"prod/server\" && yarn install",
+    "setup": "yarn install && yarn setup:client && yarn setup:server"
   },
   "devDependencies": {
-    "cross-env": "^5.0.5",
     "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "@google-cloud/functions-emulator": "git@github.com/GoogleCloudPlatform/cloud-functions-emulator.git#1.0.0-beta.6"
   }
 }
+ 
