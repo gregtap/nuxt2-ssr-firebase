@@ -1,5 +1,7 @@
 # Nuxt.js Universal App with SSR via Firebase Functions and Firebase Hosting - **_Nuxt 2 Version_**
 
+Based on https://github.com/davidroyer/nuxt2-ssr-firebase
+
 Host a Nuxt Universal app or site by combining Nuxt.js with Firebase Cloud Functions and Hosting.
 
 [Live Preview](https://nuxt2ssrfire.firebaseapp.com)
@@ -19,56 +21,37 @@ Host a Nuxt Universal app or site by combining Nuxt.js with Firebase Cloud Funct
 
 ## Setup
 
-We will now get everything setup and deployed in 3 commands:
+Use `nvm` to install Node 8
 
-**Note:** _All of these commands are ran from the root directory_
+```bash
+nvm install 8
+```
 
-1.  Install Dependencies in all necessary directories in 1 command
+```bash
+npm install -g firebase-tools
+```
 
 ```bash
 yarn setup
-# OR
-npm run setup
-```
-
-2.  Build The Project
-
-```bash
 yarn build
-# OR
-npm run build
 ```
 
-3.  Deploy To Firebase
-
-```bash
-yarn deploy
-# OR
-npm run deploy
-```
-
-**_Your site should now be live!_**
-
----
-
-## Development
-
-There are 2 development options.
-
-### 1. _Without_ Firebase Functions
-
-This will be like a normal Nuxt development experienced.
+To test client side only locally:
 
 ```bash
 yarn dev
 ```
 
-### 2. _With_ Firebase Functions
-
-This uses Firebase's local development tools to test our project
+### Firebase functions - local emulation
 
 ```bash
 yarn serve
+```
+
+### Firebase functions - deploy
+
+```bash
+yarn deploy
 ```
 
 ---
@@ -93,12 +76,3 @@ yarn serve
 * The root directory has a package.json file with several scripts that will be used to optimize and ease getting started and the workflow
 
 * ALL commands are ran from the root directory
-
-
-#   "dependencies": {
-    "@google-cloud/functions-emulator": "git://github.com/GoogleCloudPlatform/cloud-functions-emulator.git#098e253188d8caa706da08350483468d60f0c049"
-  }
-
-  # TODO try node 6
-
-  

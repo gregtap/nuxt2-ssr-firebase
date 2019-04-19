@@ -12,13 +12,13 @@
     "copyassets": "yarn copydist && yarn copystatic",
     "copydist": "cp -R prod/server/nuxt/dist/ prod/client/assets",
     "copystatic": "cp -R src/static/ prod/client",
-    "deploy": "firebase deploy",
+    "deploy": "firebase deploy --runtime nodejs8",
     "dev": "cd \"src\" && yarn dev",
     "lint-fix": "cd \"src\" && npx eslint --fix --ext .ts,.js,.vue --ignore-path ../.gitignore .",
     "lint": "cd \"src\" && npx eslint --ext .ts,.js,.vue --ignore-path ../.gitignore .",
     "predeploy": "yarn build",
     "prettier": "d \"src\" && npx prettier --write src/components/*.vue",
-    "serve": "sudo NODE_ENV=development firebase serve --only functions,hosting -p 3000",
+    "serve": "sudo NODE_ENV=development firebase serve   --only functions,hosting -p 3000",
     "setup:client": "cd \"src\" && yarn install",
     "setup:server": "cd \"prod/server\" && yarn install",
     "setup": "yarn install && yarn setup:client && yarn setup:server"
@@ -27,7 +27,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@google-cloud/functions-emulator": "git@github.com/GoogleCloudPlatform/cloud-functions-emulator.git#1.0.0-beta.6"
+    "@google-cloud/functions-emulator": "git://github.com/GoogleCloudPlatform/cloud-functions-emulator.git#098e253188d8caa706da08350483468d60f0c049"
   }
 }
  
