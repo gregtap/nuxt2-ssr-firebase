@@ -1,10 +1,13 @@
 const functions = require("firebase-functions");
-const { Nuxt } = require("nuxt");
+const { Nuxt } = require("nuxt-start");
 const express = require("express");
+const path = require('path')
+
 const app = express();
+
 const config = {
   dev: false,
-  buildDir: "nuxt",
+  buildDir: path.join(__dirname, "nuxt"),
   build: {
     publicPath: "/assets/"
   }

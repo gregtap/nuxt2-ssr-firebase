@@ -69,3 +69,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+prod/client
+dist
+.nuxt

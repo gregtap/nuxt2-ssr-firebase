@@ -1,10 +1,15 @@
 {
   "name": "foobar-project",
+  "private": true,
   "version": "0.2.0",
   "description": "Nuxt.js 2 app with SSR using Firebase Cloud Functions and Firebase Hosting.",
   "license": "MIT",
   "author": "David Royer",
   "repository": "https://github.com/davidroyer/nuxt-ssr-firebase",
+  "workspaces": [
+    "src",
+    "prod/server"
+  ],
   "scripts": {
     "build:nuxt": "cd \"src\" && yarn build",
     "build": "yarn build:nuxt && yarn run clean && yarn copyassets",
@@ -17,16 +22,14 @@
     "lint-fix": "cd \"src\" && npx eslint --fix --ext .ts,.js,.vue --ignore-path ../.gitignore .",
     "lint": "cd \"src\" && npx eslint --ext .ts,.js,.vue --ignore-path ../.gitignore .",
     "predeploy": "yarn build",
-    "prettier": "d \"src\" && npx prettier --write src/components/*.vue",
+    "prettier": "cd \"src\" && npx prettier --write src/components/*.vue",
     "serve": "NODE_ENV=development firebase serve --only functions,hosting -p 3000",
-    "setup:client": "cd \"src\" && yarn install --ignore-engines",
-    "setup:server": "cd \"prod/server\" && yarn install --ignore-engines",
-    "setup": "yarn install && yarn setup:client && yarn setup:server"
+    "setup": "yarn install --ignore-engines"
   },
   "devDependencies": {
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@google-cloud/functions-emulator": "1.0.0-beta.5"
+    "@google-cloud/functions-emulator": "1.0.0-beta.6"
   }
 }

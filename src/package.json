@@ -1,5 +1,7 @@
 {
   "name": "nuxt-ssr-firebase-source",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
