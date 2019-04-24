@@ -1,6 +1,7 @@
 {
   "name": "functions",
-  "description": "Nuxt-SSR-Firebase: Nuxt.js with Firebase Functions Production Setup",
+  "version": "0.0.0",
+  "private": true,
   "dependencies": {
     "express": "^4.15.3",
     "firebase-admin": "~5.13.1",
@@ -9,7 +10,6 @@
     "nuxt-start": "^2.6.2",
     "ts-node": "^8.1.0"
   },
-  "private": true,
   "engines": {
     "node": "8"
   }
