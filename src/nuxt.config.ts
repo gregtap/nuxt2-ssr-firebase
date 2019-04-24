@@ -2,8 +2,8 @@ import NuxtConfiguration from "@nuxt/config";
 // const pkg = require("./package");
 
 const config: NuxtConfiguration = {
-  mode: "spa",
-  debug: true,
+  // mode: "spa",
+  // debug: true,
 
   head: {
     title: "Nuxt.js 2 - SSR on Firebase Functions",
