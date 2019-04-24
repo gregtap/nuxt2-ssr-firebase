@@ -21,12 +21,12 @@
     "serve": "NODE_ENV=development firebase serve --only functions,hosting -p 3000",
     "setup:client": "cd \"src\" && yarn install --ignore-engines",
     "setup:server": "cd \"prod/server\" && yarn install --ignore-engines",
-    "setup": "yarn install && yarn setup:client && yarn setup:server"
+    "setup": "yarn install --ignore-engines && yarn setup:client && yarn setup:server"
   },
   "devDependencies": {
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@google-cloud/functions-emulator": "1.0.0-beta.5"
+    "@google-cloud/functions-emulator": "1.0.0-beta.6"
   }
 }
