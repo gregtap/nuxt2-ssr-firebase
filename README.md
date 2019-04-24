@@ -21,11 +21,13 @@ Host a Nuxt Universal app or site by combining Nuxt.js with Firebase Cloud Funct
 
 ## Setup
 
-Use `nvm` to install Node 8
+Use `nvm` to install Node 10
 
 ```bash
-nvm install 8
+nvm install 10
 ```
+
+Install firebase tools
 
 ```bash
 npm install -g firebase-tools
@@ -45,7 +47,7 @@ yarn dev
 ### Firebase functions - local emulation
 
 ```bash
-yarn serve
+sudo yarn serve
 ```
 
 ### Firebase functions - deploy
